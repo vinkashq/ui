@@ -8,7 +8,7 @@
       "type": "registry:component",
       "title": "Drawer Dialog",
       "description": "A simple component that works as a dialog component in desktop and as a drawer component in other screens.",
-      "registryDependencies": ["dialog", "drawer", "button"],
+      "registryDependencies": ["dialog", "drawer"],
       "files": [
         {
           "path": "registry/new-york/blocks/drawer-dialog/drawer-dialog.tsx",

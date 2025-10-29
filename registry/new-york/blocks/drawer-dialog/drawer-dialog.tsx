@@ -1,7 +1,6 @@
 "use client"
 
 import { useMediaQuery } from "@/registry/new-york/blocks/drawer-dialog/hooks/use-media-query"
-import { Button } from "@/registry/new-york/ui/button"
 import {
   Dialog,
   DialogContent,
@@ -20,63 +19,78 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/registry/new-york/ui/drawer"
-import { useState } from "react"
+import { createContext, useContext, useState } from "react"
 
-type DrawerDialogProps = {
-  buttonText: string,
-  title: string,
-  description?: string,
-  children: React.ReactNode
+const DrawerDialogContext = createContext<{ isDesktop: boolean; open: boolean; setOpen: (v: boolean) => void } | null>(null)
+
+export function useDrawerDialog() {
+  const ctx = useContext(DrawerDialogContext)
+  if (!ctx) throw new Error("useDrawerDialog must be used within <DrawerDialog>")
+  return ctx
 }
 
-export default function DrawerDialog({ buttonText, title, description, children }: DrawerDialogProps) {
+
+export function DrawerDialog({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false)
   const isDesktop = useMediaQuery("(min-width: 768px)")
 
-  if (isDesktop) {
-    return (
-      <Dialog open={open} onOpenChange={setOpen}>
-        <DialogTrigger asChild>
-          <Button variant="outline">{buttonText}</Button>
-        </DialogTrigger>
-        <DialogContent className="sm:max-w-[425px]">
-          <DialogHeader>
-            <DialogTitle>{title}</DialogTitle>
-            {description && (
-              <DialogDescription>
-                {description}
-              </DialogDescription>
-            )}
-          </DialogHeader>
-          {children}
-        </DialogContent>
-      </Dialog>
-    )
-  }
+  const Wrapper = isDesktop ? Dialog : Drawer
 
   return (
-    <Drawer open={open} onOpenChange={setOpen}>
-      <DrawerTrigger asChild>
-        <Button variant="outline">{buttonText}</Button>
-      </DrawerTrigger>
-      <DrawerContent>
-        <DrawerHeader className="text-left">
-          <DrawerTitle>{title}</DrawerTitle>
-          {description && (
-            <DrawerDescription>
-              {description}
-            </DrawerDescription>
-          )}
-        </DrawerHeader>
-        <div className="px-4">
-          {children}
-        </div>
-        <DrawerFooter className="pt-2">
-          <DrawerClose asChild>
-            <Button variant="outline">Cancel</Button>
-          </DrawerClose>
-        </DrawerFooter>
-      </DrawerContent>
-    </Drawer>
+    <DrawerDialogContext.Provider value={{ isDesktop, open, setOpen }}>
+      <Wrapper open={open} onOpenChange={setOpen}>
+        {children}
+      </Wrapper>
+    </DrawerDialogContext.Provider>
+  )
+}
+
+export function DrawerDialogTrigger({ children }: { children: React.ReactNode }) {
+  const { isDesktop } = useDrawerDialog()
+  const Trigger = isDesktop ? DialogTrigger : DrawerTrigger
+  return <Trigger asChild>{children}</Trigger>
+}
+
+export function DrawerDialogContent({ children }: { children: React.ReactNode }) {
+  const { isDesktop } = useDrawerDialog()
+  const Content = isDesktop ? DialogContent : DrawerContent
+  return <Content>{children}</Content>
+}
+
+export function DrawerDialogContentWrapper({ children }: { children: React.ReactNode }) {
+  const { isDesktop } = useDrawerDialog()
+  const className = isDesktop ? "" : "px-4"
+  return <div className={className}>{children}</div>
+}
+
+export function DrawerDialogHeader({ children }: { children: React.ReactNode }) {
+  const { isDesktop } = useDrawerDialog()
+  const Header = isDesktop ? DialogHeader : DrawerHeader
+  return <Header>{children}</Header>
+}
+
+export function DrawerDialogTitle({ children }: { children: React.ReactNode }) {
+  const { isDesktop } = useDrawerDialog()
+  const Title = isDesktop ? DialogTitle : DrawerTitle
+  return <Title>{children}</Title>
+}
+
+export function DrawerDialogDescription({ children }: { children: React.ReactNode }) {
+  const { isDesktop } = useDrawerDialog()
+  const Desc = isDesktop ? DialogDescription : DrawerDescription
+  return <Desc>{children}</Desc>
+}
+
+export function DrawerDialogFooter({ children }: { children: React.ReactNode }) {
+  const { isDesktop } = useDrawerDialog()
+  if (isDesktop) return children
+  const Footer = DrawerFooter
+  return (
+    <Footer>
+      {children}
+      <DrawerClose>
+        Cancel
+      </DrawerClose>
+    </Footer>
   )
 }

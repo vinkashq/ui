@@ -1,6 +1,9 @@
 import * as React from "react"
 import { OpenInV0Button } from "@/components/open-in-v0-button"
-import DrawerDialog from "@/registry/new-york/blocks/drawer-dialog/drawer-dialog"
+import { DrawerDialog, DrawerDialogContent, DrawerDialogContentWrapper, DrawerDialogDescription, DrawerDialogFooter, DrawerDialogHeader, DrawerDialogTitle, DrawerDialogTrigger } from "@/registry/new-york/blocks/drawer-dialog/drawer-dialog"
+import { Button } from "@/components/ui/button"
+import { Github } from "lucide-react"
+import Link from "next/link"
 
 export default function Home() {
   return (
@@ -20,11 +23,34 @@ export default function Home() {
             <OpenInV0Button name="drawer-dialog" className="w-fit" />
           </div>
           <div className="flex items-center justify-center min-h-[400px] relative">
-            <DrawerDialog buttonText="Open Drawer Dialog" title="Drawer Dialog">
-              Hello world!
+            <DrawerDialog>
+              <DrawerDialogTrigger>
+                <Button>Open Drawer Dialog</Button>
+              </DrawerDialogTrigger>
+              <DrawerDialogContent>
+                <DrawerDialogHeader>
+                  <DrawerDialogTitle>Drawer Dialog</DrawerDialogTitle>
+                  <DrawerDialogDescription>
+                    A simple component that works as a dialog component in desktop and as a drawer component in other screens.
+                  </DrawerDialogDescription>
+                </DrawerDialogHeader>
+                <DrawerDialogContentWrapper>
+                  Hello world!
+                </DrawerDialogContentWrapper>
+                <DrawerDialogFooter>
+                  <Button>Example Footer Button</Button>
+                </DrawerDialogFooter>
+              </DrawerDialogContent>
             </DrawerDialog>
           </div>
         </div>
+
+        <Button variant="outline" asChild>
+          <Link href="https://github.com/vinkashq/ui">
+            <Github />
+            Source Code
+          </Link>
+        </Button>
       </main>
     </div>
   )

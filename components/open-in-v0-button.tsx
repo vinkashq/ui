@@ -1,5 +1,5 @@
-import { Button } from "@/registry/new-york/ui/button"
 import { cn } from "@/lib/utils"
+import { Button } from "./ui/button"
 
 export function OpenInV0Button({
   name,
