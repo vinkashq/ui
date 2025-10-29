@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "vinkas",
+  "homepage": "https://vinkas.com",
+  "items": [
+    {
+      "name": "drawer-dialog",
+      "type": "registry:component",
+      "title": "Drawer Dialog",
+      "description": "A simple component that works as a dialog component in desktop and as a drawer component in other screens.",
+      "registryDependencies": ["dialog", "drawer", "button"],
+      "files": [
+        {
+          "path": "registry/new-york/blocks/drawer-dialog/drawer-dialog.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york/blocks/drawer-dialog/hooks/use-media-query.ts",
+          "type": "registry:hook"
+        }
+      ]
+    }
+  ]
+}
