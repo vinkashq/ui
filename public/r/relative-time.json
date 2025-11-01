@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "relative-time",
+  "type": "registry:component",
+  "title": "Relative Time",
+  "description": "A component that displays current relative time to the given input",
+  "registryDependencies": [
+    "tooltip"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/blocks/relative-time/relative-time.tsx",
+      "content": "import { Tooltip, TooltipContent, TooltipTrigger } from \"@/registry/new-york/ui/tooltip\";\n\nconst rtf = new Intl.RelativeTimeFormat(\"en\", { style: \"short\" })\n\nexport function relativeTime(date: Date): string {\n  const now = Date.now();\n\n  const diffInSeconds = Math.floor((date.getTime() - now) / 1000);\n  if (diffInSeconds < 60 && diffInSeconds > -60) {\n    return \"just now\";\n  }\n\n  const diffInMinutes = Math.floor(diffInSeconds / 60);\n  if (diffInMinutes < 60 && diffInMinutes > -60) {\n    return rtf.format(diffInMinutes, \"minute\");\n  }\n\n  const diffInHours = Math.floor(diffInMinutes / 60);\n  if (diffInHours < 24 && diffInHours > -24) {\n    return rtf.format(diffInHours, \"hour\");\n  }\n\n  const diffInDays = Math.floor(diffInHours / 24);\n  if (diffInDays < 7 && diffInDays > -7) {\n    return rtf.format(diffInDays, \"day\");\n  }\n\n  const diffInWeeks = Math.floor(diffInDays / 7);\n  if (diffInWeeks < 4 && diffInWeeks > -4) {\n    return rtf.format(diffInWeeks, \"week\");\n  }\n\n  const diffInMonths = Math.floor(diffInDays / 30);\n  if (diffInMonths < 12 && diffInMonths > -12) {\n    return rtf.format(diffInMonths, \"month\");\n  }\n\n  const diffInYears = Math.floor(diffInDays / 365);\n  return rtf.format(diffInYears, \"year\");\n}\n\ntype RelativeTimeProps = {\n  value: Date;\n} & React.ComponentPropsWithoutRef<typeof TooltipTrigger>;\n\nexport function RelativeTime(props: RelativeTimeProps) {\n  const text = relativeTime(props.value)\n  const localeString = props.value.toLocaleString()\n\n  return (\n    <Tooltip>\n      <TooltipTrigger {...props}>\n        {text}\n      </TooltipTrigger>\n      <TooltipContent>\n        {localeString}\n      </TooltipContent>\n    </Tooltip>\n  )\n}",
+      "type": "registry:ui"
+    }
+  ]
+}
