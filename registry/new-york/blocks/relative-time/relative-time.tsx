@@ -40,12 +40,12 @@ export function relativeTime(date: Date): string {
 }
 
 type RelativeTimeProps = {
-  value: Date;
+  date: Date;
 } & React.ComponentPropsWithoutRef<typeof TooltipTrigger>;
 
 export function RelativeTime(props: RelativeTimeProps) {
-  const text = relativeTime(props.value)
-  const localeString = props.value.toLocaleString()
+  const text = relativeTime(props.date)
+  const localeString = props.date.toLocaleString()
 
   return (
     <Tooltip>

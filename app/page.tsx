@@ -4,8 +4,12 @@ import { DrawerDialog, DrawerDialogContent, DrawerDialogContentWrapper, DrawerDi
 import { Button } from "@/components/ui/button"
 import { Github } from "lucide-react"
 import Link from "next/link"
+import { RelativeTime } from "@/registry/new-york/blocks/relative-time/relative-time"
 
 export default function Home() {
+  const date = new Date()
+  date.setMinutes(date.getMinutes() - 11)
+
   return (
     <div className="max-w-3xl mx-auto flex flex-col min-h-svh px-4 py-8 gap-8">
       <header className="flex flex-col gap-1">
@@ -42,6 +46,18 @@ export default function Home() {
                 </DrawerDialogFooter>
               </DrawerDialogContent>
             </DrawerDialog>
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-4 border rounded-lg p-4 min-h-[450px] relative">
+          <div className="flex items-center justify-between">
+            <h2 className="text-sm text-muted-foreground sm:pl-3">
+              A component that displays current relative time to the given input
+            </h2>
+            <OpenInV0Button name="drawer-dialog" className="w-fit" />
+          </div>
+          <div className="flex items-center justify-center min-h-[400px] relative">
+            <RelativeTime date={date} />
           </div>
         </div>
 
