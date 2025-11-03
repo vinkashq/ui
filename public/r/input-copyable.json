@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-copyable",
+  "type": "registry:component",
+  "title": "Input Copyable",
+  "description": "An Input component that has copy button which copies the value to clipboard",
+  "registryDependencies": [
+    "input-group",
+    "tooltip"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/blocks/input-copyable/input-copyable.tsx",
+      "content": "\"use client\"\n\nimport { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput } from \"@/registry/new-york/ui/input-group\"\nimport { useCopyToClipboard } from \"./hooks/use-copy-to-clipboard\"\nimport { Check, Copy } from \"lucide-react\"\nimport { Tooltip, TooltipContent, TooltipTrigger } from \"../../ui/tooltip\"\n\ntype InputCopyableProps = {\n  value: string\n} & React.ComponentProps<typeof InputGroup>\n\nexport function InputCopyable(props: InputCopyableProps) {\n  const { copyToClipboard, isCopied } = useCopyToClipboard()\n\n  const CopyButton = ({ isCopied }: { isCopied: boolean }) => {\n    if (isCopied) {\n      return (\n        <Tooltip defaultOpen={true}>\n          <TooltipTrigger asChild><Check /></TooltipTrigger>\n          <TooltipContent>Copied!</TooltipContent>\n        </Tooltip>\n      )\n    }\n\n    return (\n        <Tooltip>\n          <TooltipTrigger asChild><Copy /></TooltipTrigger>\n          <TooltipContent>Copy</TooltipContent>\n        </Tooltip>\n      )\n  }\n\n  return (\n    <InputGroup {...props}>\n      <InputGroupInput value={props.value} readOnly className=\"overflow-ellipsis\" />\n      <InputGroupAddon align=\"inline-end\">\n        <InputGroupButton\n          aria-label=\"Copy\"\n          title=\"Copy\"\n          size=\"icon-xs\"\n          onClick={() => {\n            copyToClipboard(props.value)\n          }}\n        >\n          <CopyButton isCopied={isCopied} />\n        </InputGroupButton>\n      </InputGroupAddon>\n    </InputGroup>\n  )\n}\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "registry/new-york/blocks/input-copyable/hooks/use-copy-to-clipboard.ts",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nexport function useCopyToClipboard({\n  timeout = 2000,\n  onCopy,\n}: {\n  timeout?: number\n  onCopy?: () => void\n} = {}) {\n  const [isCopied, setIsCopied] = React.useState(false)\n\n  const copyToClipboard = (value: string) => {\n    if (typeof window === \"undefined\" || !navigator.clipboard.writeText) {\n      return\n    }\n\n    if (!value) return\n\n    navigator.clipboard.writeText(value).then(() => {\n      setIsCopied(true)\n\n      if (onCopy) {\n        onCopy()\n      }\n\n      if (timeout !== 0) {\n        setTimeout(() => {\n          setIsCopied(false)\n        }, timeout)\n      }\n    }, console.error)\n  }\n\n  return { isCopied, copyToClipboard }\n}\n",
+      "type": "registry:hook"
+    }
+  ]
+}

@@ -31,6 +31,22 @@
           "type": "registry:ui"
         }
       ]
+    }, {
+      "name": "input-copyable",
+      "type": "registry:component",
+      "title": "Input Copyable",
+      "description": "An Input component that has copy button which copies the value to clipboard",
+      "registryDependencies": ["input-group", "tooltip"],
+      "files": [
+        {
+          "path": "registry/new-york/blocks/input-copyable/input-copyable.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york/blocks/input-copyable/hooks/use-copy-to-clipboard.ts",
+          "type": "registry:hook"
+        }
+      ]
     }
   ]
 }

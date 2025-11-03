@@ -1,10 +1,11 @@
 import * as React from "react"
 import { OpenInV0Button } from "@/components/open-in-v0-button"
 import { DrawerDialog, DrawerDialogContent, DrawerDialogContentWrapper, DrawerDialogDescription, DrawerDialogFooter, DrawerDialogHeader, DrawerDialogTitle, DrawerDialogTrigger } from "@/registry/new-york/blocks/drawer-dialog/drawer-dialog"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/registry/new-york/ui/button"
 import { Github } from "lucide-react"
 import Link from "next/link"
 import { RelativeTime } from "@/registry/new-york/blocks/relative-time/relative-time"
+import { InputCopyable } from "@/registry/new-york/blocks/input-copyable/input-copyable"
 
 export default function Home() {
   const date = new Date()
@@ -54,10 +55,22 @@ export default function Home() {
             <h2 className="text-sm text-muted-foreground sm:pl-3">
               A component that displays current relative time to the given input
             </h2>
-            <OpenInV0Button name="drawer-dialog" className="w-fit" />
+            <OpenInV0Button name="relative-time" className="w-fit" />
           </div>
           <div className="flex items-center justify-center min-h-[400px] relative">
             <RelativeTime date={date} />
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-4 border rounded-lg p-4 min-h-[450px] relative">
+          <div className="flex items-center justify-between">
+            <h2 className="text-sm text-muted-foreground sm:pl-3">
+              An Input component that has copy button which copies the value to clipboard
+            </h2>
+            <OpenInV0Button name="input-copyable" className="w-fit" />
+          </div>
+          <div className="flex items-center justify-center min-h-[400px] relative">
+            <InputCopyable value="Hello world!" className="w-48" />
           </div>
         </div>
 
