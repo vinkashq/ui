@@ -65,7 +65,8 @@
       "description": "A component that displays a CRUD interface for a given resource",
       "registryDependencies": [
         "dialog",
-        "drawer"
+        "drawer",
+        "@vinkas/drawer-dialog"
       ],
       "dependencies": [
         "@tanstack/react-table"

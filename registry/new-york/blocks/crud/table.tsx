@@ -91,7 +91,7 @@ export default function CrudTable<TData, TValue>({
   }
 
   return (
-    <div className="my-4">
+    <div className="flex flex-col gap-2">
       <div className="rounded-md border">
         <Table>
           <TableHeader>
