@@ -6,6 +6,7 @@ import { Github } from "lucide-react"
 import Link from "next/link"
 import { RelativeTime } from "@/registry/new-york/blocks/relative-time/relative-time"
 import { InputCopyable } from "@/registry/new-york/blocks/input-copyable/input-copyable"
+import CrudExample from "@/components/crud-example"
 
 export default function Home() {
   const date = new Date()
@@ -71,6 +72,18 @@ export default function Home() {
           </div>
           <div className="flex items-center justify-center min-h-[400px] relative">
             <InputCopyable value="Hello world!" className="w-48" />
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-4 border rounded-lg p-4 min-h-[450px] relative">
+          <div className="flex items-center justify-between">
+            <h2 className="text-sm text-muted-foreground sm:pl-3">
+              A component that displays a CRUD interface for a given resource
+            </h2>
+            <OpenInV0Button name="crud" className="w-fit" />
+          </div>
+          <div className="flex items-center justify-center min-h-[400px] relative">
+            <CrudExample />
           </div>
         </div>
 

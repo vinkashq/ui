@@ -8,7 +8,10 @@
       "type": "registry:component",
       "title": "Drawer Dialog",
       "description": "A simple component that works as a dialog component in desktop and as a drawer component in other screens.",
-      "registryDependencies": ["dialog", "drawer"],
+      "registryDependencies": [
+        "dialog",
+        "drawer"
+      ],
       "files": [
         {
           "path": "registry/new-york/blocks/drawer-dialog/drawer-dialog.tsx",
@@ -19,24 +22,31 @@
           "type": "registry:hook"
         }
       ]
-    }, {
+    },
+    {
       "name": "relative-time",
       "type": "registry:component",
       "title": "Relative Time",
       "description": "A component that displays current relative time to the given input",
-      "registryDependencies": ["tooltip"],
+      "registryDependencies": [
+        "tooltip"
+      ],
       "files": [
         {
           "path": "registry/new-york/blocks/relative-time/relative-time.tsx",
           "type": "registry:ui"
         }
       ]
-    }, {
+    },
+    {
       "name": "input-copyable",
       "type": "registry:component",
       "title": "Input Copyable",
       "description": "An Input component that has copy button which copies the value to clipboard",
-      "registryDependencies": ["input-group", "tooltip"],
+      "registryDependencies": [
+        "input-group",
+        "tooltip"
+      ],
       "files": [
         {
           "path": "registry/new-york/blocks/input-copyable/input-copyable.tsx",
@@ -45,6 +55,25 @@
         {
           "path": "registry/new-york/blocks/input-copyable/hooks/use-copy-to-clipboard.ts",
           "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "crud",
+      "type": "registry:component",
+      "title": "CRUD",
+      "description": "A component that displays a CRUD interface for a given resource",
+      "registryDependencies": [
+        "dialog",
+        "drawer"
+      ],
+      "dependencies": [
+        "@tanstack/react-table"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/blocks/crud/index.tsx",
+          "type": "registry:ui"
         }
       ]
     }
