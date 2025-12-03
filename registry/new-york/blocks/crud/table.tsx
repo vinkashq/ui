@@ -23,9 +23,7 @@ export type CrudTableProps<TData, TValue> = {
   columns: ColumnDef<TData, TValue>[]
   data: TData[]
   nextPageToken?: string
-  // eslint-disable-next-line no-unused-vars
   onLoadMore?: (token?: string) => void
-  onView?: (row: TData) => void
   onEdit?: (row: TData) => void
   onDelete?: (row: TData) => void
 }
@@ -35,7 +33,6 @@ export default function CrudTable<TData, TValue>({
   data,
   nextPageToken,
   onLoadMore,
-  onView,
   onEdit,
   onDelete,
 }: CrudTableProps<TData, TValue>) {
@@ -54,7 +51,6 @@ export default function CrudTable<TData, TValue>({
           <DropdownMenuContent align="end">
             <DropdownMenuGroup>
               <DropdownMenuLabel>Actions</DropdownMenuLabel>
-              {onView && <DropdownMenuItem onClick={() => onView(row.original)}>View</DropdownMenuItem>}
               {onEdit && <DropdownMenuItem onClick={() => onEdit(row.original)}>Edit</DropdownMenuItem>}
               {onDelete && <DropdownMenuItem variant="destructive" onClick={() => onDelete(row.original)}>Delete</DropdownMenuItem>}
             </DropdownMenuGroup>
@@ -64,7 +60,6 @@ export default function CrudTable<TData, TValue>({
     })
   }
 
-  // eslint-disable-next-line react-hooks/incompatible-library
   const table = useReactTable({
     data,
     columns,

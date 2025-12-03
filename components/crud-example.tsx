@@ -1,6 +1,6 @@
 "use client"
 
-import { Crud } from "@/registry/new-york/blocks/crud"
+import { Crud, CrudForm } from "@/registry/new-york/blocks/crud"
 
 type Payment = {
   id: string
@@ -27,7 +27,7 @@ export const payments: Payment[] = [
 
 export default function CrudExample() {
   return (
-    <Crud data={payments} columns={[
+    <Crud name="Payment" data={payments} columns={[
       {
         accessorKey: "id",
         header: "ID",
@@ -44,6 +44,10 @@ export default function CrudExample() {
         accessorKey: "email",
         header: "Email",
       },
-    ]} onView={(row) => console.log(row)} onEdit={(row) => console.log(row)} onDelete={(row) => console.log(row)} />
+    ]} onEdit={(row) => console.log(row)} onDelete={(row) => console.log(row)} onCreate={(e) => console.log(e)}>
+      <CrudForm>
+        <div>Form Content</div>
+      </CrudForm>
+    </Crud>
   )
 }
