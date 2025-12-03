@@ -6,10 +6,17 @@ import { Button } from "../../ui/button"
 import CrudForm from "./form"
 import { Plus } from "lucide-react"
 
-const CrudContext = createContext(undefined)
+type CrudType = {
+  name: string
+  setDialogOpen: (v: boolean) => void
+}
+
+const CrudContext = createContext<CrudType | undefined>(undefined)
 
 export function useCrud() {
-  return useContext(CrudContext)
+  const ctx = useContext(CrudContext)
+  if (!ctx) throw new Error("useCrud must be used within <Crud>")
+  return ctx
 }
 
 export type CrudProps<TData, TValue> = {
@@ -59,14 +66,9 @@ export function Crud<TData, TValue>({ name, children, columns, data, onCreate, o
     }, 1000)
   }
   return (
-    <CrudContext.Provider value={undefined}>
+    <CrudContext.Provider value={{ name, setDialogOpen }}>
       <div className="flex flex-col gap-2">
-        <div className="flex justify-end">
-          <Button size="sm" onClick={() => setDialogOpen(true)}>
-            <Plus />
-            Add {name}
-          </Button>
-        </div>
+        <CrudHeader />
         <CrudTable columns={columns} data={data} onEdit={onCrudEdit} onDelete={onCrudDelete} />
         {Content}
       </div>
@@ -110,6 +112,16 @@ export function Crud<TData, TValue>({ name, children, columns, data, onCreate, o
       </AlertDialog>
     </CrudContext.Provider >
   )
+}
+
+function CrudHeader() {
+  const { name, setDialogOpen } = useCrud()
+  return <div className="flex justify-end">
+    <Button size="sm" onClick={() => setDialogOpen(true)}>
+      <Plus />
+      Add {name}
+    </Button>
+  </div>
 }
 
 export { CrudTable, CrudForm }
