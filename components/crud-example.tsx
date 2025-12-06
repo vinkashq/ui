@@ -68,14 +68,14 @@ export default function CrudExample() {
         setData(data.map((item) => item.id === row.id ? row : item))
       }} onDelete={(row) => {
         setData(data.filter((item) => item.id !== row.id))
-      }} onCreate={(e) => {
+      }} onCreate={() => {
         setData([...data, formData])
       }}>
       <CrudForm>
-        <Input type="number" name="amount" value={formData.amount} onChange={(e) => setFormData({ ...formData, amount: Number(e.target.value) })} />
-        <Input type="text" name="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
-        <Input type="text" name="status" value={formData.status} onChange={(e) => setFormData({ ...formData, status: e.target.value as "pending" | "processing" | "success" | "failed" })} />
-        <Input type="text" name="id" value={formData.id} onChange={(e) => setFormData({ ...formData, id: e.target.value })} />
+        <Input required placeholder="Amount" type="number" name="amount" value={formData.amount} onChange={(e) => setFormData({ ...formData, amount: Number(e.target.value) })} />
+        <Input required placeholder="Email" type="email" name="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
+        <Input required placeholder="Status" type="text" name="status" value={formData.status} onChange={(e) => setFormData({ ...formData, status: e.target.value as "pending" | "processing" | "success" | "failed" })} />
+        <Input required placeholder="ID" type="text" name="id" value={formData.id} onChange={(e) => setFormData({ ...formData, id: e.target.value })} />
       </CrudForm>
     </Crud>
   )
