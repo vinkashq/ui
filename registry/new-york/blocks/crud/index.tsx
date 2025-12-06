@@ -34,15 +34,20 @@ export type CrudProps<TData, TValue> = {
   columns: ColumnDef<TData, TValue>[]
   data: TData[]
   formState: [CrudFormType<TData>, Dispatch<SetStateAction<CrudFormType<TData>>>]
+  defaultData?: TData
 }
 
-export function Crud<TData, TValue>({ name, formState, children, columns, data, onCreate, onEdit, onDelete }: CrudProps<TData, TValue>) {
+export function Crud<TData, TValue>({ name, formState, children, columns, data, onCreate, onEdit, onDelete, defaultData = {} as TData }: CrudProps<TData, TValue>) {
   const [dialogOpen, setDialogOpen] = useState(false)
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false)
   const [deleteRow, setDeleteRow] = useState<TData | null>(null)
   const [formType, setFormType] = formState
   const [submitting, setSubmitting] = useState(false)
 
+  const onCrudCreate = () => {
+    setDialogOpen(true)
+    setFormType({ method: 'create', data: defaultData })
+  }
   const onCrudEdit = (data: TData) => {
     setDialogOpen(true)
     setFormType({ method: 'update', data })
@@ -77,7 +82,12 @@ export function Crud<TData, TValue>({ name, formState, children, columns, data, 
   return (
     <CrudContext.Provider value={{ name, setDialogOpen }}>
       <div className="flex flex-col gap-2">
-        <CrudHeader />
+        <div className="flex justify-end">
+          <Button size="sm" onClick={onCrudCreate}>
+            <Plus />
+            Add {name}
+          </Button>
+        </div>
         <CrudTable columns={columns} data={data} onEdit={onCrudEdit} onDelete={onCrudDelete} />
         {Content}
       </div>
@@ -121,16 +131,6 @@ export function Crud<TData, TValue>({ name, formState, children, columns, data, 
       </AlertDialog>
     </CrudContext.Provider >
   )
-}
-
-function CrudHeader() {
-  const { name, setDialogOpen } = useCrud()
-  return <div className="flex justify-end">
-    <Button size="sm" onClick={() => setDialogOpen(true)}>
-      <Plus />
-      Add {name}
-    </Button>
-  </div>
 }
 
 export { CrudTable, CrudForm }

@@ -28,14 +28,15 @@ export const payments: Payment[] = [
 
 export default function CrudExample() {
   const [data, setData] = useState(payments)
+  const defaultPayment = {
+    id: "",
+    amount: 0,
+    status: "pending",
+    email: "",
+  } as Payment
   const formState = useState<CrudFormType<Payment>>({
     method: 'create',
-    data: {
-      id: "",
-      amount: 0,
-      status: "pending",
-      email: "",
-    }
+    data: defaultPayment,
   })
   const [formType, setFormType] = formState
   const formData = formType.data
@@ -43,6 +44,7 @@ export default function CrudExample() {
   return (
     <Crud
       formState={formState}
+      defaultData={defaultPayment}
       name="Payment"
       data={data}
       columns={[
