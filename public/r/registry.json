@@ -74,17 +74,17 @@
       "files": [
         {
           "path": "registry/new-york/blocks/crud/index.tsx",
-          "target": "registry/new-york/blocks/crud/index.tsx",
+          "target": "components/ui/crud/index.tsx",
           "type": "registry:block"
         },
         {
           "path": "registry/new-york/blocks/crud/table.tsx",
-          "target": "registry/new-york/blocks/crud/table.tsx",
+          "target": "components/ui/crud/table.tsx",
           "type": "registry:block"
         },
         {
           "path": "registry/new-york/blocks/crud/form.tsx",
-          "target": "registry/new-york/blocks/crud/form.tsx",
+          "target": "components/ui/crud/form.tsx",
           "type": "registry:block"
         }
       ]
