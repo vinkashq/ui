@@ -1,10 +1,11 @@
-import React, { createContext, FormEvent, useContext, useState } from "react"
-import CrudTable, { CrudTableProps } from "./table"
+import React, { createContext, Dispatch, FormEvent, ReactNode, SetStateAction, useContext, useState } from "react"
+import CrudTable from "./table"
 import { DrawerDialog, DrawerDialogContent, DrawerDialogContentWrapper, DrawerDialogFooter, DrawerDialogHeader, DrawerDialogTitle } from "../drawer-dialog/drawer-dialog"
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "../../ui/alert-dialog"
 import { Button } from "../../ui/button"
 import CrudForm from "./form"
 import { Plus } from "lucide-react"
+import { ColumnDef } from "@tanstack/react-table"
 
 type CrudType = {
   name: string
@@ -19,28 +20,36 @@ export function useCrud() {
   return ctx
 }
 
+export type CrudFormType<TData> = {
+  method: 'create' | 'update'
+  data: TData
+}
+
 export type CrudProps<TData, TValue> = {
   name: string
-  children: React.ReactNode
-  onCreate: (e: FormEvent<HTMLFormElement>) => void
-} & CrudTableProps<TData, TValue>
+  children: ReactNode
+  onCreate: (data: TData, e: FormEvent<HTMLFormElement>) => void
+  onEdit: (data: TData, e: FormEvent<HTMLFormElement>) => void
+  onDelete: (data: TData) => void
+  columns: ColumnDef<TData, TValue>[]
+  data: TData[]
+  formState: [CrudFormType<TData>, Dispatch<SetStateAction<CrudFormType<TData>>>]
+}
 
-export function Crud<TData, TValue>({ name, children, columns, data, onCreate, onEdit, onDelete }: CrudProps<TData, TValue>) {
+export function Crud<TData, TValue>({ name, formState, children, columns, data, onCreate, onEdit, onDelete }: CrudProps<TData, TValue>) {
   const [dialogOpen, setDialogOpen] = useState(false)
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false)
   const [deleteRow, setDeleteRow] = useState<TData | null>(null)
-  const [editRow, setEditRow] = useState<TData | null>(null)
+  const [formType, setFormType] = formState
   const [submitting, setSubmitting] = useState(false)
 
-  const onCrudEdit = (row: TData) => {
-    onEdit?.(row)
+  const onCrudEdit = (data: TData) => {
     setDialogOpen(true)
-    setEditRow(row)
+    setFormType({ method: 'update', data })
   }
-  const onCrudDelete = (row: TData) => {
-    if (!onDelete) return
+  const onCrudDelete = (data: TData) => {
+    setDeleteRow(data)
     setDeleteDialogOpen(true)
-    setDeleteRow(row)
   }
   const Form = React.Children.toArray(children).find((child) => {
     if (React.isValidElement(child) && child.type === CrudForm) {
@@ -56,10 +65,10 @@ export function Crud<TData, TValue>({ name, children, columns, data, onCreate, o
     e.preventDefault()
     setSubmitting(true)
     setTimeout(() => {
-      if (editRow) {
-        onEdit?.(editRow)
+      if (formType.method === 'update') {
+        onEdit(formType.data, e)
       } else {
-        onCreate(e)
+        onCreate(formType.data, e)
       }
       setSubmitting(false)
       setDialogOpen(false)
@@ -76,7 +85,7 @@ export function Crud<TData, TValue>({ name, children, columns, data, onCreate, o
         <DrawerDialogContent>
           <form onSubmit={handleSubmit}>
             <DrawerDialogHeader>
-              <DrawerDialogTitle>{editRow ? "Edit" : "Add"} {name}</DrawerDialogTitle>
+              <DrawerDialogTitle>{formType.method === 'update' ? "Edit" : "Add"} {name}</DrawerDialogTitle>
             </DrawerDialogHeader>
             <DrawerDialogContentWrapper>
               <div className="grid gap-4 py-4">
