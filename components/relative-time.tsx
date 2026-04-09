@@ -7,7 +7,7 @@ export function relativeTime(date: Date): string {
 
   const diffInSeconds = Math.floor((date.getTime() - now) / 1000);
   if (diffInSeconds < 60 && diffInSeconds > -60) {
-    return "just now";
+    return rtf.format(diffInSeconds, "second");
   }
 
   const diffInMinutes = Math.floor(diffInSeconds / 60);
