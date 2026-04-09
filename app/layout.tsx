@@ -43,7 +43,9 @@ export default function RootLayout({
         >
           <TooltipProvider>
             <Header />
-            {children}
+            <main className="flex flex-col flex-1">
+              {children}
+            </main>
             <Footer />
           </TooltipProvider>
         </ThemeProvider>
