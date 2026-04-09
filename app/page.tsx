@@ -43,18 +43,10 @@ export default function Home() {
           <section className="theme-container">
             <div className="mx-auto grid gap-8 py-1 theme-container md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-6 2xl:gap-8">
               <div className="flex flex-col gap-6 *:[div]:w-full *:[div]:max-w-full">
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Relative Time</CardTitle>
-                  </CardHeader>
-                  <CardContent className="flex flex-col gap-4 underline underline-offset-4 decoration-dotted">
-                    <RelativeTime date={janDate} />
-                    <RelativeTime date={decDate} />
-                  </CardContent>
-                </Card>
+                <InputCopyable value="Hello World!" />
               </div>
               <div className="flex flex-col gap-6 *:[div]:w-full *:[div]:max-w-full">
-                <InputCopyable value="Hello World!" />
+                <RelativeTime date={janDate} />
               </div>
             </div>
           </section>

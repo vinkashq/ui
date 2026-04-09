@@ -42,10 +42,12 @@ export default function RootLayout({
           enableSystem
         >
           <TooltipProvider>
-            <Header />
-            <main className="flex flex-col flex-1">
-              {children}
-            </main>
+            <div className="min-h-dvh flex flex-col">
+              <Header />
+              <main className="flex flex-col flex-1">
+                {children}
+              </main>
+            </div>
             <Footer />
           </TooltipProvider>
         </ThemeProvider>
