@@ -1,0 +1,43 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "vinkas-ui",
+  "homepage": "https://ui.vinkas.com",
+  "items": [
+    {
+      "name": "relative-time",
+      "type": "registry:ui",
+      "title": "Relative Time",
+      "description": "A component that displays current relative time to the given input",
+      "registryDependencies": [
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "components/relative-time.tsx",
+          "type": "registry:ui",
+          "target": "components/vinkas/relative-time.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input-copyable",
+      "type": "registry:ui",
+      "title": "Input Copyable",
+      "description": "An Input component that has copy button which copies the value to clipboard",
+      "registryDependencies": [
+        "input-group",
+        "tooltip"
+      ],
+      "dependencies": [
+        "usehooks-ts"
+      ],
+      "files": [
+        {
+          "path": "registry/vinkas/ui/input-copyable.tsx",
+          "type": "registry:ui",
+          "target": "components/vinkas/input-copyable.tsx"
+        }
+      ]
+    }
+  ]
+}
