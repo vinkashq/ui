@@ -13,9 +13,9 @@
       ],
       "files": [
         {
-          "path": "components/relative-time.tsx",
+          "path": "registry/vinkas/ui/relative-time.tsx",
           "type": "registry:ui",
-          "target": "components/vinkas/relative-time.tsx"
+          "target": "components/vinkas/ui/relative-time.tsx"
         }
       ]
     },
@@ -35,7 +35,7 @@
         {
           "path": "registry/vinkas/ui/input-copyable.tsx",
           "type": "registry:ui",
-          "target": "components/vinkas/input-copyable.tsx"
+          "target": "components/vinkas/ui/input-copyable.tsx"
         }
       ]
     }

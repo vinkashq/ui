@@ -1,7 +1,6 @@
-import { RelativeTime } from "@/components/relative-time";
+import { RelativeTime } from "@/registry/vinkas/ui/relative-time";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { InputCopyable } from "@/registry/vinkas/ui/input-copyable";
 import { SiShadcnui } from "@icons-pack/react-simple-icons";
 import { ArrowRight } from "lucide-react";
