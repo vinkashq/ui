@@ -12,7 +12,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
-import { getCurrentBase, getPagesFromFolder } from "@/lib/page-tree";
+import { getPagesFromFolder } from "@/lib/page-tree";
 import { source } from "@/lib/source";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -33,7 +33,6 @@ export function DocsSidebar({
   ...props
 }: React.ComponentProps<typeof Sidebar> & { tree: typeof source.pageTree }) {
   const pathname = usePathname()
-  const currentBase = getCurrentBase(pathname)
 
   return (
     <Sidebar
@@ -82,7 +81,7 @@ export function DocsSidebar({
               <SidebarGroupContent>
                 {item.type === "folder" && (
                   <SidebarMenu className="gap-0.5">
-                    {getPagesFromFolder(item, currentBase).map((page) => {
+                    {getPagesFromFolder(item).map((page) => {
 
                       if (EXCLUDED_PAGES.includes(page.url)) {
                         return null

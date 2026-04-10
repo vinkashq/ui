@@ -27,10 +27,10 @@ export default function Home() {
             </h1>
             <p className="max-w-4xl text-base text-balance text-foreground sm:text-lg">Open-source React components you can customize, extend, and build on.</p>
             <div className="flex gap-2">
-              <Button render={<Link href="#" />} nativeButton={false}>
+              <Button render={<Link href="/docs" />} nativeButton={false}>
                 Get Started
               </Button>
-              <Button render={<Link href="#" />} nativeButton={false} variant="ghost">
+              <Button render={<Link href="/docs/components" />} nativeButton={false} variant="ghost">
                 Components
               </Button>
             </div>

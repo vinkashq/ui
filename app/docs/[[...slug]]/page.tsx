@@ -6,6 +6,25 @@ import type { Metadata } from 'next';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
 import { InputCopyable } from '@/registry/vinkas/ui/input-copyable';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
+import { ComponentsList } from '@/components/components-list';
+import { PageTreeFolder } from '@/lib/page-tree';
+
+function ComponentsListWrapper() {
+  const componentsFolder = source.pageTree.children.find(
+    (page) => page.$id === "components"
+  )
+
+  if (componentsFolder?.type !== "folder") {
+    return null
+  }
+
+  return (
+    <ComponentsList
+      componentsFolder={componentsFolder as PageTreeFolder}
+    />
+  )
+}
+
 
 export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
   const params = await props.params;
@@ -27,6 +46,7 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
             CardContent: CardContent,
             CardFooter: CardFooter,
             InputCopyable: InputCopyable,
+            ComponentsList: ComponentsListWrapper,
           })}
         />
       </DocsBody>

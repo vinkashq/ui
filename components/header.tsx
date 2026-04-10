@@ -17,16 +17,16 @@ export default function Header() {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuLink href="#">Docs</NavigationMenuLink>
+                  <NavigationMenuLink href="/docs">Docs</NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuLink href="#">Components</NavigationMenuLink>
+                  <NavigationMenuLink href="/docs/components">Components</NavigationMenuLink>
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
           </div>
           <div className="flex items-center gap-2">
-            <Button render={<Link href="#" />} nativeButton={false}>
+            <Button render={<Link href="/docs" />} nativeButton={false}>
               Get Started
             </Button>
             <GitHubLink />
