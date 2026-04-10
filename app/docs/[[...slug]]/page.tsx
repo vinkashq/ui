@@ -8,6 +8,7 @@ import { InputCopyable } from '@/registry/vinkas/ui/input-copyable';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { ComponentsList } from '@/components/components-list';
 import { PageTreeFolder } from '@/lib/page-tree';
+import { RelativeTime } from '@/registry/vinkas/ui/relative-time';
 
 function ComponentsListWrapper() {
   const componentsFolder = source.pageTree.children.find(
@@ -46,6 +47,7 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
             CardContent: CardContent,
             CardFooter: CardFooter,
             InputCopyable: InputCopyable,
+            RelativeTime: RelativeTime,
             ComponentsList: ComponentsListWrapper,
           })}
         />

@@ -1,4 +1,5 @@
 // @ts-nocheck
+import * as __fd_glob_4 from "../content/docs/components/relative-time.mdx?collection=docs"
 import * as __fd_glob_3 from "../content/docs/components/input-copyable.mdx?collection=docs"
 import * as __fd_glob_2 from "../content/docs/components/index.mdx?collection=docs"
 import * as __fd_glob_1 from "../content/docs/(root)/index.mdx?collection=docs"
@@ -11,4 +12,4 @@ const create = server<typeof Config, import("fumadocs-mdx/runtime/types").Intern
   }
 }>({"doc":{"passthroughs":["extractedReferences"]}});
 
-export const docs = await create.docs("docs", "content/docs", {"meta.json": __fd_glob_0, }, {"(root)/index.mdx": __fd_glob_1, "components/index.mdx": __fd_glob_2, "components/input-copyable.mdx": __fd_glob_3, });
+export const docs = await create.docs("docs", "content/docs", {"meta.json": __fd_glob_0, }, {"(root)/index.mdx": __fd_glob_1, "components/index.mdx": __fd_glob_2, "components/input-copyable.mdx": __fd_glob_3, "components/relative-time.mdx": __fd_glob_4, });

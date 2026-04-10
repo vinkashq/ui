@@ -1,0 +1,29 @@
+---
+title: Relative Time
+---
+
+## Demo
+<Card>
+  <CardContent className="flex items-center justify-center py-8">
+    <RelativeTime date={new Date()} />
+  </CardContent>
+  <CardFooter className="flex items-center justify-center py-8">
+    ```ts
+      import { RelativeTime } from '@/registry/vinkas/ui/relative-time'
+
+      export function InputCopyableDemo() {
+        return <RelativeTime date={new Date()} />
+      }
+    ```
+  </CardFooter>
+</Card>
+
+## Installation
+
+```bash
+npx shadcn@latest add @vinkas-ui/relative-time
+```
+<small>Make sure you already have the @vinkas-ui registry added to your components.json file. Read the <a href="/docs/installation">installation guide</a> for more information.</small>
+
+## API Reference
+See the [Tooltip](https://ui.shadcn.com/docs/components/tooltip) documentation of shadcn/ui for more information. `TooltipTrigger` is used as the base component for `RelativeTime`.
