@@ -9,6 +9,7 @@ import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { ComponentsList } from '@/components/components-list';
 import { PageTreeFolder } from '@/lib/page-tree';
 import { RelativeTime } from '@/registry/vinkas/ui/relative-time';
+import UTMLink from '@/registry/vinkas/ui/utm-link';
 
 function ComponentsListWrapper() {
   const componentsFolder = source.pageTree.children.find(
@@ -48,6 +49,7 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
             CardFooter: CardFooter,
             InputCopyable: InputCopyable,
             RelativeTime: RelativeTime,
+            UTMLink: UTMLink,
             ComponentsList: ComponentsListWrapper,
           })}
         />

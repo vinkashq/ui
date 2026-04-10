@@ -1,0 +1,29 @@
+---
+title: UTM Link
+---
+
+## Demo
+<Card>
+  <CardContent className="flex items-center justify-center py-8">
+    <UTMLink href="https://vinkas.com" source="vinkas" medium="utm-link" campaign="ui" target="_blank">UTM Link</UTMLink>
+  </CardContent>
+  <CardFooter className="flex items-center justify-center py-8">
+    ```ts
+      import { UTMLink } from '@/registry/vinkas/ui/utm-link'
+
+      export function UTMLinkDemo() {
+        return <UTMLink href="https://vinkas.com" source="vinkas" medium="utm-link" campaign="ui" target="_blank">UTM Link</UTMLink>
+      }
+    ```
+  </CardFooter>
+</Card>
+
+## Installation
+
+```bash
+npx shadcn@latest add @vinkas-ui/utm-link
+```
+<small>Make sure you already have the @vinkas-ui registry added to your components.json file. Read the <a href="/docs/installation">installation guide</a> for more information.</small>
+
+## API Reference
+See the [Link](https://ui.shadcn.com/docs/components/link) documentation of shadcn/ui for more information. `Link` is used as the base component for `UTMLink`.
