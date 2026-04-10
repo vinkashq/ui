@@ -1,0 +1,26 @@
+---
+title: Installation
+---
+
+How to install and set up **Vinkas UI** in your project.
+
+## Prerequisites
+A project with [Tailwind CSS](https://tailwindcss.com/) and [shadcn/ui](https://ui.shadcn.com/) set up.
+
+## Installation
+Add the following code in the `components.json` file:
+
+```json
+{
+  "registries": {
+    "@vinkas-ui": "https://ui.vinkas.com/r/{name}.json"
+  }
+}
+```
+
+Then run the following command to add the Vinkas UI component you want to your project:
+
+```bash
+npx shadcn@latest add @vinkas-ui/[COMPONENT_NAME]
+```
+

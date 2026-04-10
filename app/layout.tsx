@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import { RootProvider } from "fumadocs-ui/provider/next";
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
@@ -20,7 +21,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Vinkas UI",
+  title: {
+    default: "Vinkas UI",
+    template: "%s - Vinkas UI"
+  },
   description: "Open source shadcn/ui compatible components",
 };
 
@@ -42,16 +46,21 @@ export default function RootLayout({
           enableSystem
         >
           <TooltipProvider>
-            <div className="min-h-dvh flex flex-col">
-              <Header />
-              <main className="flex flex-col flex-1">
-                {children}
-              </main>
-            </div>
-            <Footer />
+            <RootProvider>
+              <div
+                data-slot="layout"
+                className="group/layout relative z-10 flex min-h-svh flex-col bg-background has-data-[slot=designer]:h-svh has-data-[slot=designer]:overflow-hidden"
+              >
+                <Header />
+                <main className="flex flex-col flex-1 relative">
+                  {children}
+                </main>
+              </div>
+              <Footer />
+            </RootProvider>
           </TooltipProvider>
         </ThemeProvider>
       </body>
-    </html>
+    </html >
   );
 }
