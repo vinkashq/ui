@@ -17,7 +17,7 @@ export default function Home() {
       <section className="border-grid">
         <div className="container-wrapper">
           <div className="container flex flex-col items-center gap-2 px-6 py-8 text-center md:py-16 lg:py-20 xl:gap-4 mx-auto">
-            <Badge variant="secondary" render={<Link href="#" />} className="gap-2">
+            <Badge variant="secondary" render={<Link href="/docs#installation" />} className="gap-2">
               <SiShadcnui />
               shadcn/ui registry
               <ArrowRight />
