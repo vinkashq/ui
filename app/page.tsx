@@ -25,7 +25,7 @@ export default function Home() {
             <h1 className="leading-tighter text-3xl font-semibold tracking-tight text-balance text-primary lg:leading-[1.1] lg:font-semibold xl:text-5xl xl:tracking-tighter max-w-4xl">
               <span className="font-bold">Vinkas</span> UI
             </h1>
-            <p className="max-w-4xl text-base text-balance text-foreground sm:text-lg">Open-source React components you can customize, extend, and build on.</p>
+            <p className="max-w-4xl text-base text-balance text-foreground sm:text-lg">Open-source Base UI React components you can customize, extend, and build on.</p>
             <div className="flex gap-2">
               <Button render={<Link href="/docs" />} nativeButton={false}>
                 Get Started
