@@ -7,6 +7,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { RootProvider } from "fumadocs-ui/provider/next";
+import { Analytics } from "@vercel/analytics/next"
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
@@ -60,6 +61,7 @@ export default function RootLayout({
             </RootProvider>
           </TooltipProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html >
   );
