@@ -55,8 +55,8 @@ export default function RootLayout({
                 <main className="flex flex-col flex-1 relative mt-12">
                   {children}
                 </main>
+                <Footer />
               </div>
-              <Footer />
             </RootProvider>
           </TooltipProvider>
         </ThemeProvider>

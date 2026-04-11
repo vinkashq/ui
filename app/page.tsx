@@ -43,7 +43,7 @@ export default function Home() {
           <section className="theme-container">
             <div className="mx-auto grid gap-8 py-1 theme-container md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-6 2xl:gap-8">
               <div className="flex flex-col gap-6 *:[div]:w-full *:[div]:max-w-full">
-                <InputCopyable value="Hello World!" />
+                <InputCopyable value="Hello World!" className="w-fit! md:w-full! mx-auto" />
               </div>
               <div className="flex flex-col gap-6 *:[div]:w-full *:[div]:max-w-full">
                 <RelativeTime date={janDate} />
