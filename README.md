@@ -5,6 +5,15 @@
   </picture>
 </p>
 
+<p align="center">
+  <a href="https://github.com/vinkashq/ui/blob/main/LICENSE">
+    <img alt="GitHub License" src="https://img.shields.io/github/license/vinkashq/ui">
+  </a>
+  <a href="https://github.com/vinkashq/ui/actions/workflows/github-code-scanning/codeql">
+    <img alt="CodeQL" src="https://github.com/vinkashq/ui/actions/workflows/github-code-scanning/codeql/badge.svg">
+  </a>
+</p>
+
 # Vinkas UI
 Open-source Base UI React components you can customize, extend, and build on.
 
