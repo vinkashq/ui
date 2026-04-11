@@ -52,7 +52,7 @@ export default function RootLayout({
                 className="group/layout relative z-10 flex min-h-svh flex-col bg-background has-data-[slot=designer]:h-svh has-data-[slot=designer]:overflow-hidden"
               >
                 <Header />
-                <main className="flex flex-col flex-1 relative">
+                <main className="flex flex-col flex-1 relative mt-12">
                   {children}
                 </main>
               </div>

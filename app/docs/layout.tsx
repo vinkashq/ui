@@ -16,9 +16,11 @@ export default function Layout({ children }: LayoutProps<'/docs'>) {
         }
       >
         <DocsSidebar tree={source.getPageTree()} />
-        <DocsLayout sidebar={{ enabled: false }} tree={source.getPageTree()} {...baseOptions()}>
-          {children}
-        </DocsLayout>
+        <SidebarInset>
+          <DocsLayout sidebar={{ enabled: false }} tree={source.getPageTree()} {...baseOptions()}>
+            {children}
+          </DocsLayout>
+        </SidebarInset>
       </SidebarProvider>
     </div>
   );

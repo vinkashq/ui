@@ -149,6 +149,6 @@
   margin-inline: auto;
 }
 
-#nd-sidebar {
-  display: none;
+#nd-subnav {
+  display: none !important;
 }
