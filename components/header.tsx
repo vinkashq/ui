@@ -9,10 +9,10 @@ export default function Header() {
   return (
     <header className="w-full bg-background">
       <div className="container-wrapper px-6 group-has-data-[slot=designer]/layout:max-w-none 3xl:fixed:px-0">
-        <div className="flex justify-between gap-4 h-(--header-height) items-center **:data-[slot=separator]:h-4! group-has-data-[slot=designer]/layout:fixed:max-w-none 3xl:fixed:container">
+        <div className="flex justify-between gap-4 my-2 h-(--header-height) items-center **:data-[slot=separator]:h-4! group-has-data-[slot=designer]/layout:fixed:max-w-none 3xl:fixed:container">
           <div className="flex items-center gap-4">
-            <Link className="flex items-center gap-2 h-12" href="/">
-              <Logo className="!size-9" />
+            <Link className="flex items-center gap-2 h-8" href="/">
+              <Logo className="!size-8" />
             </Link>
             <NavigationMenu>
               <NavigationMenuList>
