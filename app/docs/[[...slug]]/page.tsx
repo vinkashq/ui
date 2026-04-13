@@ -10,6 +10,7 @@ import { ComponentsList } from '@/components/components-list';
 import { PageTreeFolder } from '@/lib/page-tree';
 import { RelativeTime } from '@/registry/vinkas/ui/relative-time';
 import UTMLink from '@/registry/vinkas/ui/utm-link';
+import CopyrightText from '@/registry/vinkas/ui/copyright-text';
 
 function ComponentsListWrapper() {
   const componentsFolder = source.pageTree.children.find(
@@ -47,6 +48,7 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
             Card: Card,
             CardContent: CardContent,
             CardFooter: CardFooter,
+            CopyrightText: CopyrightText,
             InputCopyable: InputCopyable,
             RelativeTime: RelativeTime,
             UTMLink: UTMLink,

@@ -1,0 +1,39 @@
+---
+title: Copyright Text
+description: A copyright text component that displays the copyright information
+---
+
+## Demo
+<Card>
+  <CardContent className="flex items-center justify-center py-8">
+    <CopyrightText companyName="Acme Inc." />
+  </CardContent>
+  <CardFooter className="flex items-center justify-center py-8">
+    ```ts
+      import { CopyrightText } from "@/registry/vinkas/ui/copyright-text"
+
+      export function CopyrightTextDemo() {
+        return <CopyrightText companyName="Acme Inc." />
+      }
+    ```
+  </CardFooter>
+</Card>
+
+## Installation
+
+```bash
+npx shadcn@latest add @vinkas-ui/copyright-text
+```
+<small>Make sure you already have the @vinkas-ui registry added to your components.json file. Read the <a href="/docs/installation">installation guide</a> for more information.</small>
+
+### Properties
+
+| Property | Type | Required | Description | Default |
+|----------|------|----------|-------------|---------|
+| companyName | string | Yes | The name of the company. | - |
+| startYear | number | No | The start year of the copyright. | - |
+| endYear | number | No | The end year of the copyright. | `new Date().getFullYear()` |
+| showRights | boolean | No | Whether to show the rights text. | `true` |
+| rightsText | string | No | The rights text. | "All rights reserved." |
+| className | string | No | The className to be applied to the component. | - |
+

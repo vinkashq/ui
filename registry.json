@@ -51,6 +51,19 @@
           "target": "components/vinkas/ui/utm-link.tsx"
         }
       ]
+    },
+    {
+      "name": "copyright-text",
+      "type": "registry:ui",
+      "title": "Copyright Text",
+      "description": "A copyright text component that displays the copyright information",
+      "files": [
+        {
+          "path": "registry/vinkas/ui/copyright-text.tsx",
+          "type": "registry:ui",
+          "target": "components/vinkas/ui/copyright-text.tsx"
+        }
+      ]
     }
   ]
 }
