@@ -12,6 +12,9 @@
   <a href="https://github.com/vinkashq/ui/actions/workflows/github-code-scanning/codeql">
     <img alt="CodeQL" src="https://github.com/vinkashq/ui/actions/workflows/github-code-scanning/codeql/badge.svg">
   </a>
+  <a href="https://github.com/vinkashq/ui/actions/workflows/test.yml">
+    <img alt="CodeQL" src="https://github.com/vinkashq/ui/actions/workflows/test.yml/badge.svg">
+  </a>
 </p>
 
 # Vinkas UI
