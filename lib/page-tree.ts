@@ -24,7 +24,9 @@ export function getPagesFromFolder(
   folder: PageTreeFolder,
 ): PageTreePage[] {
   const specialFolder = ["components", "blocks"].find(
-    (id) => folder.$id === id || folder.name?.toLowerCase() === id
+    (id) =>
+      folder.$id === id ||
+      (typeof folder.name === "string" && folder.name.toLowerCase() === id)
   )
 
   if (specialFolder) {
