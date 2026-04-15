@@ -32,8 +32,7 @@ const getTimeDiff = (target: Date, now: Date) => {
 }
 
 export default function CountdownTimer({ date, className, ...props }: CountdownTimerProps) {
-  const [now, setNow] = useState(new Date())
-  const { days, hours, minutes, seconds } = getTimeDiff(date, now)
+  const [now, setNow] = useState<Date | null>(null)
 
   useEffect(() => {
     let timeout: NodeJS.Timeout
@@ -43,10 +42,14 @@ export default function CountdownTimer({ date, className, ...props }: CountdownT
       timeout = setTimeout(tick, 1000)
     }
 
-    timeout = setTimeout(tick, 1000)
+    tick()
 
     return () => clearTimeout(timeout)
   }, [])
+
+  if (!now) return null
+
+  const { days, hours, minutes, seconds } = getTimeDiff(date, now)
 
   return (
     <div className={cn("flex justify-around items-center text-center gap-2", className)} {...props}>
