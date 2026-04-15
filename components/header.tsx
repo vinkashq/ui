@@ -14,13 +14,16 @@ export default function Header() {
             <Link className="flex items-center gap-2 h-8" href="/">
               <Logo className="!size-8" />
             </Link>
-            <NavigationMenu>
+            <NavigationMenu className="font-medium">
               <NavigationMenuList>
                 <NavigationMenuItem>
                   <NavigationMenuLink href="/docs">Docs</NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                   <NavigationMenuLink href="/docs/components">Components</NavigationMenuLink>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuLink href="/docs/blocks">Blocks</NavigationMenuLink>
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>

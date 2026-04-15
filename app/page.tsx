@@ -43,7 +43,7 @@ export default function Home() {
         </div>
       </section>
       <div className="container-wrapper flex-1 pb-6">
-        <div className="container">
+        <div className="container overflow-hidden px-4 md:px-2">
           <section className="theme-container">
             <div className="mx-auto grid gap-8 py-1 theme-container md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-6 2xl:gap-8">
               <div className="flex flex-col gap-6 *:[div]:w-full *:[div]:max-w-full">
