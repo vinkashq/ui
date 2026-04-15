@@ -23,8 +23,11 @@ export function getAllPagesFromFolder(folder: PageTreeFolder): PageTreePage[] {
 export function getPagesFromFolder(
   folder: PageTreeFolder,
 ): PageTreePage[] {
-  // For the components folder, find the base subfolder.
-  if (folder.$id === "components" || folder.name === "Components") {
+  const specialFolder = ["components", "blocks"].find(
+    (id) => folder.$id === id || folder.name.toLowerCase() === id
+  )
+
+  if (specialFolder) {
     for (const child of folder.children) {
       if (child.type === "folder") {
         return child.children.filter(
@@ -35,23 +38,7 @@ export function getPagesFromFolder(
 
     // Fallback: return all pages from nested folders.
     return getAllPagesFromFolder(folder).filter(
-      (page) => !page.url.endsWith("/components")
-    )
-  }
-
-  // For the blocks folder, find the base subfolder.
-  if (folder.$id === "blocks" || folder.name === "Blocks") {
-    for (const child of folder.children) {
-      if (child.type === "folder") {
-        return child.children.filter(
-          (c): c is PageTreePage => c.type === "page"
-        )
-      }
-    }
-
-    // Fallback: return all pages from nested folders.
-    return getAllPagesFromFolder(folder).filter(
-      (page) => !page.url.endsWith("/blocks")
+      (page) => !page.url.endsWith(`/${specialFolder}`)
     )
   }
 
