@@ -64,7 +64,7 @@ export default function Home() {
               <div className="flex flex-col gap-6 *:[div]:w-full *:[div]:max-w-full">
                 <Card>
                   <CardContent className="text-center">
-                    <UTMLink href="https://vinkas.com" source="vinkas" medium="utm-link" campaign="ui" target="_blank">UTM Link</UTMLink>
+                    <UTMLink href="https://vinkas.com" source="vinkas" medium="utm-link" campaign="ui" target="_blank" rel="noopener">UTM Link</UTMLink>
                   </CardContent>
                 </Card>
               </div>
