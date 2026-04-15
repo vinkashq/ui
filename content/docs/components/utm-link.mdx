@@ -6,14 +6,14 @@ description: This is a shadcn/ui type react component that automatically adds UT
 ## Demo
 <Card>
   <CardContent className="flex items-center justify-center py-8">
-    <UTMLink href="https://vinkas.com" source="vinkas" medium="utm-link" campaign="ui" target="_blank">UTM Link</UTMLink>
+    <UTMLink href="https://vinkas.com" source="vinkas" medium="utm-link" campaign="ui" target="_blank" rel="noopener">UTM Link</UTMLink>
   </CardContent>
   <CardFooter className="flex items-center justify-center py-8">
     ```ts
       import { UTMLink } from '@/registry/vinkas/ui/utm-link'
 
       export function UTMLinkDemo() {
-        return <UTMLink href="https://vinkas.com" source="vinkas" medium="utm-link" campaign="ui" target="_blank">UTM Link</UTMLink>
+        return <UTMLink href="https://vinkas.com" source="vinkas" medium="utm-link" campaign="ui" target="_blank" rel="noopener">UTM Link</UTMLink>
       }
     ```
   </CardFooter>
