@@ -22,6 +22,10 @@ const TOP_LEVEL_SECTIONS = [
   {
     name: "Components",
     href: "/docs/components",
+  },
+  {
+    name: "Blocks",
+    href: "/docs/blocks",
   }
 ]
 
@@ -106,8 +110,6 @@ export function DocsSidebar({
             </SidebarGroup>
           )
         })}
-        <SidebarGroup />
-        <SidebarGroup />
       </SidebarContent>
       <SidebarFooter />
     </Sidebar >

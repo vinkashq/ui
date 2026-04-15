@@ -1,0 +1,33 @@
+---
+title: Countdown Timer
+description: A simple shadcn block type react component that displays countdown to a specific date.
+---
+
+## Demo
+<Card>
+  <CardContent className="flex items-center justify-center py-8">
+    <CountdownTimer date={new Date("2027/01/01")} className="w-96 max-w-full" />
+  </CardContent>
+  <CardFooter className="flex items-center justify-center py-8">
+    ```ts
+      import { CountdownTimer } from "@/registry/vinkas/blocks/countdown-timer"
+
+      export function CopyrightTextDemo() {
+        return <CountdownTimer date={new Date("2027/01/01")} />
+      }
+    ```
+  </CardFooter>
+</Card>
+
+## Installation
+
+```bash
+npx shadcn@latest add @vinkas-ui/countdown-timer
+```
+<small>Make sure you already have the @vinkas-ui registry added to your components.json file. Read the <a href="/docs/installation">installation guide</a> for more information.</small>
+
+### Properties
+
+| Property | Type | Required | Description | Default |
+|----------|------|----------|-------------|---------|
+| date | Date | Yes | The date to countdown to. | - |

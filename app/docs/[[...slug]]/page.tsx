@@ -11,6 +11,8 @@ import { PageTreeFolder } from '@/lib/page-tree';
 import { RelativeTime } from '@/registry/vinkas/ui/relative-time';
 import UTMLink from '@/registry/vinkas/ui/utm-link';
 import CopyrightText from '@/registry/vinkas/ui/copyright-text';
+import CountdownTimer from '@/registry/vinkas/blocks/countdown-timer';
+import { BlocksList } from '@/components/blocks-list';
 
 function ComponentsListWrapper() {
   const componentsFolder = source.pageTree.children.find(
@@ -24,6 +26,22 @@ function ComponentsListWrapper() {
   return (
     <ComponentsList
       componentsFolder={componentsFolder as PageTreeFolder}
+    />
+  )
+}
+
+function BlocksListWrapper() {
+  const blocksFolder = source.pageTree.children.find(
+    (page) => page.$id === "blocks"
+  )
+
+  if (blocksFolder?.type !== "folder") {
+    return null
+  }
+
+  return (
+    <BlocksList
+      blocksFolder={blocksFolder as PageTreeFolder}
     />
   )
 }
@@ -49,10 +67,12 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
             CardContent: CardContent,
             CardFooter: CardFooter,
             CopyrightText: CopyrightText,
+            CountdownTimer: CountdownTimer,
             InputCopyable: InputCopyable,
             RelativeTime: RelativeTime,
             UTMLink: UTMLink,
             ComponentsList: ComponentsListWrapper,
+            BlocksList: BlocksListWrapper,
           })}
         />
       </DocsBody>

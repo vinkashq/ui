@@ -2,13 +2,13 @@
   "root": true,
   "pages": [
     "components",
+    "blocks",
     "(root)",
     "changelog",
     "forms",
     "installation",
     "dark-mode",
     "rtl",
-    "registry",
-    "abc"
+    "registry"
   ]
 }

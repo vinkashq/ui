@@ -64,6 +64,22 @@
           "target": "components/vinkas/ui/copyright-text.tsx"
         }
       ]
+    },
+    {
+      "name": "countdown-timer",
+      "type": "registry:block",
+      "title": "Countdown Timer",
+      "description": "A simple shadcn block type react component that displays countdown to a specific date.",
+      "dependencies": [
+        "@number-flow/react"
+      ],
+      "files": [
+        {
+          "path": "registry/vinkas/blocks/countdown-timer.tsx",
+          "type": "registry:block",
+          "target": "components/vinkas/blocks/countdown-timer.tsx"
+        }
+      ]
     }
   ]
 }

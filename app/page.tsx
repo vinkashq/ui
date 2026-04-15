@@ -7,12 +7,15 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import UTMLink from "@/registry/vinkas/ui/utm-link";
 import CopyrightText from "@/registry/vinkas/ui/copyright-text";
+import CountdownTimer from "@/registry/vinkas/blocks/countdown-timer";
+import { Card, CardContent } from "@/components/ui/card";
 
 export default function Home() {
   const janDate = new Date()
   const decDate = new Date()
   janDate.setMonth(0)
-  decDate.setMonth(12)
+  decDate.setMonth(11, 25)
+  decDate.setHours(0, 0, 0, 0)
 
   return (
     <div className="flex flex-1 flex-col">
@@ -40,20 +43,37 @@ export default function Home() {
         </div>
       </section>
       <div className="container-wrapper flex-1 pb-6">
-        <div className="container overflow-hidden">
+        <div className="container">
           <section className="theme-container">
             <div className="mx-auto grid gap-8 py-1 theme-container md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-6 2xl:gap-8">
               <div className="flex flex-col gap-6 *:[div]:w-full *:[div]:max-w-full">
+                <Card>
+                  <CardContent>
+                    <CountdownTimer date={decDate} />
+                  </CardContent>
+                </Card>
                 <InputCopyable value="Hello World!" className="w-fit! md:w-full! mx-auto" />
               </div>
               <div className="flex flex-col gap-6 *:[div]:w-full *:[div]:max-w-full">
-                <RelativeTime date={janDate} />
+                <Card>
+                  <CardContent className="text-center">
+                    <RelativeTime date={janDate} />
+                  </CardContent>
+                </Card>
               </div>
               <div className="flex flex-col gap-6 *:[div]:w-full *:[div]:max-w-full">
-                <UTMLink href="https://vinkas.com" source="vinkas" medium="utm-link" campaign="ui" target="_blank" className="text-center">UTM Link</UTMLink>
+                <Card>
+                  <CardContent className="text-center">
+                    <UTMLink href="https://vinkas.com" source="vinkas" medium="utm-link" campaign="ui" target="_blank">UTM Link</UTMLink>
+                  </CardContent>
+                </Card>
               </div>
               <div className="flex flex-col gap-6 *:[div]:w-full *:[div]:max-w-full">
-                <CopyrightText companyName="Acme Inc." />
+                <Card>
+                  <CardContent>
+                    <CopyrightText companyName="Acme Inc." />
+                  </CardContent>
+                </Card>
               </div>
             </div>
           </section>

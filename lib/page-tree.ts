@@ -39,6 +39,22 @@ export function getPagesFromFolder(
     )
   }
 
+  // For the blocks folder, find the base subfolder.
+  if (folder.$id === "blocks" || folder.name === "Blocks") {
+    for (const child of folder.children) {
+      if (child.type === "folder") {
+        return child.children.filter(
+          (c): c is PageTreePage => c.type === "page"
+        )
+      }
+    }
+
+    // Fallback: return all pages from nested folders.
+    return getAllPagesFromFolder(folder).filter(
+      (page) => !page.url.endsWith("/blocks")
+    )
+  }
+
   // For other folders, return direct page children.
   return folder.children.filter(
     (child): child is PageTreePage => child.type === "page"
