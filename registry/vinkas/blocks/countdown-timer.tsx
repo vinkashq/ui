@@ -14,7 +14,7 @@ const MINUTE = SECOND * 60
 const HOUR = MINUTE * 60
 const DAY = HOUR * 24
 
-const getTimeDiff = (target: Date, now: Date) => {
+export const getTimeDiff = (target: Date, now: Date) => {
   let diff = Math.max(0, target.getTime() - now.getTime())
 
   const days = Math.trunc(diff / DAY)
