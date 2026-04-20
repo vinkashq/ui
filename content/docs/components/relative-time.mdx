@@ -26,5 +26,14 @@ npx shadcn@latest add @vinkas-ui/relative-time
 ```
 <small>Make sure you already have the @vinkas-ui registry added to your components.json file. Read the <a href="/docs/installation">installation guide</a> for more information.</small>
 
-## API Reference
+### Properties
+
+| Property | Type | Required | Description | Default |
+|----------|------|----------|-------------|---------|
+| date | Date | Yes | The date to display | - |
+| locale | string | No | The locale to use for formatting | "en-US" |
+| style | "short" "long" "narrow" | No | The style to use for formatting | "short" |
+
+
+### API Reference
 See the [Tooltip](https://ui.shadcn.com/docs/components/tooltip) documentation of shadcn/ui for more information. `TooltipTrigger` is used as the base component for `RelativeTime`.

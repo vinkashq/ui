@@ -5,11 +5,12 @@ import { useEffect, useState } from "react"
 type UseRelativeTimeProps = {
   date: Date
   locale?: string
+  style?: "long" | "short" | "narrow"
 }
 
-export function useRelativeTime({ date, locale = "en-US" }: UseRelativeTimeProps) {
+export function useRelativeTime({ date, locale = "en-US", style = "short" }: UseRelativeTimeProps) {
   const [now, setNow] = useState<number | null>(null)
-  const format = (diff: number, unit: Intl.RelativeTimeFormatUnit) => new Intl.RelativeTimeFormat(locale, { style: "short" }).format(diff, unit)
+  const format = (diff: number, unit: Intl.RelativeTimeFormatUnit) => new Intl.RelativeTimeFormat(locale, { style }).format(diff, unit)
 
   useEffect(() => {
     setNow(Date.now())

@@ -3,12 +3,12 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { InputCopyable } from "@/registry/vinkas/ui/input-copyable";
 import { SiShadcnui } from "@icons-pack/react-simple-icons";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronRightIcon } from "lucide-react";
 import Link from "next/link";
 import UTMLink from "@/registry/vinkas/ui/utm-link";
 import CopyrightText from "@/registry/vinkas/ui/copyright-text";
 import CountdownTimer from "@/registry/vinkas/blocks/countdown-timer";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function Home() {
   const janDate = new Date()
@@ -16,6 +16,61 @@ export default function Home() {
   janDate.setMonth(0)
   decDate.setMonth(11, 25)
   decDate.setHours(0, 0, 0, 0)
+
+  const examples = [
+    [{
+      id: "countdown-timer",
+      title: "Countdown Timer",
+      description: "Displays countdown to a specific date.",
+      url: "/docs/blocks/countdown-timer",
+      component: (
+        <>
+          <CountdownTimer date={decDate} />
+        </>
+      ),
+    }, {
+      id: "input-copyable",
+      title: "Input Copyable",
+      description: "Input component with copy button to copy the value to clipboard",
+      url: "/docs/components/input-copyable",
+      component: (
+        <>
+          <InputCopyable value="Hello World!" className="w-fit! md:w-full! mx-auto" />
+        </>
+      ),
+    }],
+    [{
+      id: "relative-time",
+      title: "Relative Time",
+      description: "Displays the relative time to the given date.",
+      url: "/docs/components/relative-time",
+      component: (
+        <div className="flex flex-col gap-4">
+          <RelativeTime date={janDate} />
+          <RelativeTime date={janDate} style="short" locale="ta" />
+          <RelativeTime date={decDate} style="long" locale="zh-CN" />
+        </div>
+      ),
+    }],
+    [{
+      id: "utm-link",
+      title: "UTM Link",
+      description: "Link that automatically adds UTM params to the href on click",
+      url: "/docs/components/utm-link",
+      component: (
+        <UTMLink className="text-center block" href="https://vinkas.com" source="vinkas" medium="utm-link" campaign="ui" target="_blank" rel="noopener">Click Me</UTMLink>
+      )
+    }],
+    [{
+      id: "copyright-text",
+      title: "Copyright Text",
+      description: "Text component that displays the copyright information",
+      url: "/docs/components/copyright-text",
+      component: (
+        <CopyrightText companyName="Acme Inc." />
+      )
+    }]
+  ]
 
   return (
     <div className="flex flex-1 flex-col">
@@ -46,39 +101,34 @@ export default function Home() {
         <div className="container overflow-hidden px-4 md:px-2">
           <section className="theme-container">
             <div className="mx-auto grid gap-8 py-1 theme-container md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-6 2xl:gap-8">
-              <div className="flex flex-col gap-6 *:[div]:w-full *:[div]:max-w-full">
-                <Card>
-                  <CardContent>
-                    <CountdownTimer date={decDate} />
-                  </CardContent>
-                </Card>
-                <InputCopyable value="Hello World!" className="w-fit! md:w-full! mx-auto" />
-              </div>
-              <div className="flex flex-col gap-6 *:[div]:w-full *:[div]:max-w-full">
-                <Card>
-                  <CardContent className="text-center">
-                    <RelativeTime date={janDate} />
-                  </CardContent>
-                </Card>
-              </div>
-              <div className="flex flex-col gap-6 *:[div]:w-full *:[div]:max-w-full">
-                <Card>
-                  <CardContent className="text-center">
-                    <UTMLink href="https://vinkas.com" source="vinkas" medium="utm-link" campaign="ui" target="_blank" rel="noopener">UTM Link</UTMLink>
-                  </CardContent>
-                </Card>
-              </div>
-              <div className="flex flex-col gap-6 *:[div]:w-full *:[div]:max-w-full">
-                <Card>
-                  <CardContent>
-                    <CopyrightText companyName="Acme Inc." />
-                  </CardContent>
-                </Card>
-              </div>
+              {examples.map((components, index) => (
+                <div key={index} className="flex flex-col gap-6 *:[div]:w-full *:[div]:max-w-full">
+                  {components.map((component, index) => (
+                    <Card key={index}>
+                      <CardHeader>
+                        <CardTitle>
+                          <Link href={component.url}>
+                            {component.title}
+                          </Link>
+                        </CardTitle>
+                        <CardDescription>{component.description}</CardDescription>
+                        <CardAction>
+                          <Link href={component.url}>
+                            <ChevronRightIcon className="size-4 text-muted-foreground" />
+                          </Link>
+                        </CardAction>
+                      </CardHeader>
+                      <CardContent>
+                        {component.component}
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              ))}
             </div>
           </section>
         </div>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 }
