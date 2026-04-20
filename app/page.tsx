@@ -1,13 +1,13 @@
-import { RelativeTime } from "@/registry/vinkas/ui/relative-time";
+import { RelativeTime } from "@/registry/components/ui/relative-time";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { InputCopyable } from "@/registry/vinkas/ui/input-copyable";
+import { InputCopyable } from "@/registry/components/ui/input-copyable";
 import { SiShadcnui } from "@icons-pack/react-simple-icons";
 import { ArrowRight, ChevronRightIcon } from "lucide-react";
 import Link from "next/link";
-import UTMLink from "@/registry/vinkas/ui/utm-link";
-import CopyrightText from "@/registry/vinkas/ui/copyright-text";
-import CountdownTimer from "@/registry/vinkas/blocks/countdown-timer";
+import UTMLink from "@/registry/components/ui/utm-link";
+import CopyrightText from "@/registry/components/ui/copyright-text";
+import CountdownTimer from "@/registry/components/blocks/countdown-timer";
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function Home() {

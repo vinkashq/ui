@@ -13,12 +13,12 @@
       ],
       "files": [
         {
-          "path": "registry/vinkas/ui/relative-time.tsx",
+          "path": "registry/components/ui/relative-time.tsx",
           "type": "registry:ui",
-          "target": "components/vinkas/ui/relative-time.tsx"
+          "target": "components/ui/relative-time.tsx"
         },
         {
-          "path": "registry/vinkas/hooks/use-relative-time.ts",
+          "path": "registry/hooks/use-relative-time.ts",
           "type": "registry:hook",
           "target": "hooks/use-relative-time.ts"
         }
@@ -38,9 +38,9 @@
       ],
       "files": [
         {
-          "path": "registry/vinkas/ui/input-copyable.tsx",
+          "path": "registry/components/ui/input-copyable.tsx",
           "type": "registry:ui",
-          "target": "components/vinkas/ui/input-copyable.tsx"
+          "target": "components/ui/input-copyable.tsx"
         }
       ]
     },
@@ -51,9 +51,9 @@
       "description": "A link component that automatically adds UTM parameters to the href on click",
       "files": [
         {
-          "path": "registry/vinkas/ui/utm-link.tsx",
+          "path": "registry/components/ui/utm-link.tsx",
           "type": "registry:ui",
-          "target": "components/vinkas/ui/utm-link.tsx"
+          "target": "components/ui/utm-link.tsx"
         }
       ]
     },
@@ -64,9 +64,9 @@
       "description": "A copyright text component that displays the copyright information",
       "files": [
         {
-          "path": "registry/vinkas/ui/copyright-text.tsx",
+          "path": "registry/components/ui/copyright-text.tsx",
           "type": "registry:ui",
-          "target": "components/vinkas/ui/copyright-text.tsx"
+          "target": "components/ui/copyright-text.tsx"
         }
       ]
     },
@@ -80,9 +80,9 @@
       ],
       "files": [
         {
-          "path": "registry/vinkas/blocks/countdown-timer.tsx",
+          "path": "registry/components/blocks/countdown-timer.tsx",
           "type": "registry:block",
-          "target": "components/vinkas/blocks/countdown-timer.tsx"
+          "target": "components/blocks/countdown-timer.tsx"
         }
       ]
     }

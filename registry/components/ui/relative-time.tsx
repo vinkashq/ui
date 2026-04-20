@@ -1,7 +1,7 @@
 "use client"
 
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
-import { useRelativeTime } from "../hooks/use-relative-time";
+import { useRelativeTime } from "../../hooks/use-relative-time";
 
 type RelativeTimeProps = {
   date: Date

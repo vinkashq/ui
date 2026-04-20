@@ -4,14 +4,14 @@ import { notFound } from 'next/navigation';
 import { getMDXComponents } from '@/components/mdx';
 import type { Metadata } from 'next';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
-import { InputCopyable } from '@/registry/vinkas/ui/input-copyable';
+import { InputCopyable } from '@/registry/components/ui/input-copyable';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { ComponentsList } from '@/components/components-list';
 import { PageTreeFolder } from '@/lib/page-tree';
-import { RelativeTime } from '@/registry/vinkas/ui/relative-time';
-import UTMLink from '@/registry/vinkas/ui/utm-link';
-import CopyrightText from '@/registry/vinkas/ui/copyright-text';
-import CountdownTimer from '@/registry/vinkas/blocks/countdown-timer';
+import { RelativeTime } from '@/registry/components/ui/relative-time';
+import UTMLink from '@/registry/components/ui/utm-link';
+import CopyrightText from '@/registry/components/ui/copyright-text';
+import CountdownTimer from '@/registry/components/blocks/countdown-timer';
 import { BlocksList } from '@/components/blocks-list';
 
 function ComponentsListWrapper() {

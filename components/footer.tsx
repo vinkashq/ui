@@ -1,4 +1,4 @@
-import UTMLink from "@/registry/vinkas/ui/utm-link";
+import UTMLink from "@/registry/components/ui/utm-link";
 import Link from "next/link";
 
 export default function Footer() {
