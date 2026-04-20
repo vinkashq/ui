@@ -16,7 +16,7 @@ export function useRelativeTime({ date, locale = "en-US", style = "short" }: Use
     setNow(Date.now())
   }, [])
 
-  if (!now) return date.toLocaleString(locale, { dateStyle: "long", timeStyle: "long" })
+  if (!now) return date.toLocaleString(locale, { dateStyle: "short", timeStyle: "long" })
 
   const diffInSeconds = Math.floor((date.getTime() - now) / 1000);
   if (diffInSeconds < 60 && diffInSeconds > -60) {
