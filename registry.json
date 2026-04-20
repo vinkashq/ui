@@ -16,6 +16,11 @@
           "path": "registry/vinkas/ui/relative-time.tsx",
           "type": "registry:ui",
           "target": "components/vinkas/ui/relative-time.tsx"
+        },
+        {
+          "path": "registry/vinkas/hooks/use-relative-time.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-relative-time.ts"
         }
       ]
     },
