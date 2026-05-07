@@ -85,6 +85,22 @@
           "target": "components/blocks/countdown-timer.tsx"
         }
       ]
+    },
+    {
+      "name": "itinerary",
+      "type": "registry:block",
+      "title": "Itinerary",
+      "description": "A simple shadcn ui block react component that displays an itinerary.",
+      "dependencies": [
+        "@mapcn/map"
+      ],
+      "files": [
+        {
+          "path": "registry/components/blocks/itinerary.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/itinerary.tsx"
+        }
+      ]
     }
   ]
 }

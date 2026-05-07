@@ -1,0 +1,33 @@
+---
+title: Itinerary
+description: A simple shadcn block type react component that displays an itinerary.
+---
+
+## Demo
+<Card>
+  <CardContent className="flex items-center justify-center py-8">
+    <Itinerary />
+  </CardContent>
+  <CardFooter className="flex items-center justify-center py-8">
+    ```ts
+      import { Itinerary } from "@vinkas-ui/itinerary"
+
+      export function ItineraryDemo() {
+        return <Itinerary data={itineraryData} />
+      }
+    ```
+  </CardFooter>
+</Card>
+
+## Installation
+
+```bash
+npx shadcn@latest add @vinkas-ui/itinerary
+```
+<small>Make sure you already have the @vinkas-ui registry added to your components.json file.Read the <a href="/docs/installation">installation guide</a> for more information.</small>
+
+### Properties
+
+| Property | Type | Required | Description | Default |
+|----------|------|----------|-------------|---------|
+| data | Place[] | Yes | The itinerary data. | - |

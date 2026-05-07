@@ -13,6 +13,8 @@ import UTMLink from '@/registry/components/ui/utm-link';
 import CopyrightText from '@/registry/components/ui/copyright-text';
 import CountdownTimer from '@/registry/components/blocks/countdown-timer';
 import { BlocksList } from '@/components/blocks-list';
+import Itinerary from '@/registry/components/blocks/itinerary';
+import { Map, MapControls, MapMarker, MapRoute, MarkerContent, MarkerPopup } from '@/components/ui/map';
 
 function ComponentsListWrapper() {
   const componentsFolder = source.pageTree.children.find(
@@ -46,6 +48,26 @@ function BlocksListWrapper() {
   )
 }
 
+function ItineraryDemo() {
+  return (
+    <Itinerary data={[
+      {
+        "name": "Place 1",
+        "longitude": -74.006,
+        "latitude": 40.7128,
+      }, {
+        "name": "Place 2",
+        "longitude": -73.9857,
+        "latitude": 40.7580,
+      }, {
+        "name": "Place 3",
+        "longitude": -73.9780,
+        "latitude": 40.7829,
+      }]}
+    />
+  )
+}
+
 
 export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
   const params = await props.params;
@@ -66,11 +88,18 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
             Card: Card,
             CardContent: CardContent,
             CardFooter: CardFooter,
+            Map: Map,
+            MapControls: MapControls,
+            MapMarker: MapMarker,
+            MapRoute: MapRoute,
+            MarkerContent: MarkerContent,
+            MarkerPopup: MarkerPopup,
             CopyrightText: CopyrightText,
             CountdownTimer: CountdownTimer,
             InputCopyable: InputCopyable,
             RelativeTime: RelativeTime,
             UTMLink: UTMLink,
+            Itinerary: ItineraryDemo,
             ComponentsList: ComponentsListWrapper,
             BlocksList: BlocksListWrapper,
           })}
