@@ -6,8 +6,8 @@ description: This is a shadcn/ui type react component that displays the relative
 ## Demo
 <Card>
   <CardContent className="flex flex-col gap-4 items-center justify-center py-8">
-    <RelativeTime date={new Date()} style="narrow" />
-    <RelativeTime date={new Date()} style="long" locale="zh-CN" />
+    <RelativeTime date={new Date()} size="narrow" />
+    <RelativeTime date={new Date()} size="long" locale="zh-CN" />
     <RelativeTime date={new Date()} locale="fr-FR" />
   </CardContent>
   <CardFooter className="flex items-center justify-center py-8">
@@ -17,8 +17,8 @@ description: This is a shadcn/ui type react component that displays the relative
       export function InputCopyableDemo() {
         return (
           <div className="flex flex-col gap-4 items-center justify-center">
-            <RelativeTime date={new Date()} style="narrow" />
-            <RelativeTime date={new Date()} style="long" locale="zh-CN" />
+            <RelativeTime date={new Date()} size="narrow" />
+            <RelativeTime date={new Date()} size="long" locale="zh-CN" />
             <RelativeTime date={new Date()} locale="fr-FR" />
           </div>
         )

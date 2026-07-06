@@ -47,8 +47,8 @@ export default function Home() {
       component: (
         <div className="flex flex-col gap-4">
           <RelativeTime date={janDate} />
-          <RelativeTime date={janDate} style="short" locale="ta" />
-          <RelativeTime date={decDate} style="long" locale="zh-CN" />
+          <RelativeTime date={janDate} size="short" locale="ta" />
+          <RelativeTime date={decDate} size="long" locale="zh-CN" />
         </div>
       ),
     }],
