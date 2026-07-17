@@ -12,7 +12,7 @@ type ComposerProps = {
 export default function Composer({ text, className, ...props }: ComposerProps) {
   const [markdown, setMarkdown] = useState(text || "")
   return (
-    <div className={cn("grid grid-cols-2 gap-4", className)} {...props}>
+    <div className={cn("grid grid-cols-2 gap-4 w-full", className)} {...props}>
       <InputGroup>
         <InputGroupTextarea
           placeholder="Write your text here. (Markdown supported)"
