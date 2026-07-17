@@ -9,6 +9,7 @@ import UTMLink from "@/registry/components/ui/utm-link";
 import CopyrightText from "@/registry/components/ui/copyright-text";
 import CountdownTimer from "@/registry/components/blocks/countdown-timer";
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import Composer from "@/registry/components/blocks/composer";
 
 export default function Home() {
   const janDate = new Date()
@@ -19,6 +20,16 @@ export default function Home() {
 
   const examples = [
     [{
+      id: "composer",
+      title: "Composer",
+      description: "Displays a code editor with a run button.",
+      url: "/docs/blocks/composer",
+      component: (
+        <>
+          <Composer />
+        </>
+      ),
+    }, {
       id: "countdown-timer",
       title: "Countdown Timer",
       description: "Displays countdown to a specific date.",
