@@ -18,18 +18,42 @@ export default function Home() {
   decDate.setMonth(11, 25)
   decDate.setHours(0, 0, 0, 0)
 
-  const examples = [
-    [{
+  const text = `# Heading 1
+## Heading 2
+### Heading 3
+
+**Bold Text**
+*Italic Text*
+***Bold Italic Text***
+~~Strikethrough~~
+
+> This is a blockquote.
+> It can span multiple lines.
+
+**Lists:**
+- Item 1
+- Item 2
+  - Subitem 1
+  - Subitem 2
+
+**Links:**
+[Google](https://google.com)
+`
+
+  const fillRowExamples = [
+    {
       id: "composer",
       title: "Composer",
-      description: "Displays a code editor with a run button.",
+      description: "A real-time Markdown editor that renders your content as you type. Perfect for writing documentation, articles, or notes.",
       url: "/docs/blocks/composer",
       component: (
-        <>
-          <Composer />
-        </>
+        <Composer text={text} />
       ),
-    }, {
+    }
+  ]
+
+  const examples = [
+    [{
       id: "countdown-timer",
       title: "Countdown Timer",
       description: "Displays countdown to a specific date.",
@@ -111,6 +135,30 @@ export default function Home() {
       <div className="container-wrapper flex-1 pb-6">
         <div className="container overflow-hidden px-4 md:px-2">
           <section className="theme-container">
+            <div className="mb-4">
+              {fillRowExamples.map((component, index) => (
+                <div key={index} className="flex flex-col gap-6 *:[div]:w-full *:[div]:max-w-full py-4">
+                  <Card key={index}>
+                    <CardHeader>
+                      <CardTitle>
+                        <Link href={component.url}>
+                          {component.title}
+                        </Link>
+                      </CardTitle>
+                      <CardDescription>{component.description}</CardDescription>
+                      <CardAction>
+                        <Link href={component.url}>
+                          <ChevronRightIcon className="size-4 text-muted-foreground" />
+                        </Link>
+                      </CardAction>
+                    </CardHeader>
+                    <CardContent>
+                      {component.component}
+                    </CardContent>
+                  </Card>
+                </div>
+              ))}
+            </div>
             <div className="mx-auto grid gap-8 py-1 theme-container md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-6 2xl:gap-8">
               {examples.map((components, index) => (
                 <div key={index} className="flex flex-col gap-6 *:[div]:w-full *:[div]:max-w-full">
