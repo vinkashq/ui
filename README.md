@@ -24,9 +24,11 @@ Open-source Base UI React components you can customize, extend, and build on.
 Visit [https://ui.vinkas.com](https://ui.vinkas.com) to view the documentation.
 
 ### Available Components & Blocks
+- [Composer](https://ui.vinkas.com/docs/blocks/composer)
 - [Copyright Text](https://ui.vinkas.com/docs/components/copyright-text)
 - [Countdown Timer](https://ui.vinkas.com/docs/blocks/countdown-timer)
 - [Input Copyable](https://ui.vinkas.com/docs/components/input-copyable)
+- [Markdown Text](https://ui.vinkas.com/docs/components/markdown-text)
 - [Relative Time](https://ui.vinkas.com/docs/components/relative-time)
 - [UTM Link](https://ui.vinkas.com/docs/components/utm-link)
 

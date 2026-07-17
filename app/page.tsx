@@ -10,6 +10,7 @@ import CopyrightText from "@/registry/components/ui/copyright-text";
 import CountdownTimer from "@/registry/components/blocks/countdown-timer";
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Composer from "@/registry/components/blocks/composer";
+import MarkdownText from "@/registry/components/ui/markdown-text";
 
 export default function Home() {
   const janDate = new Date()
@@ -95,14 +96,22 @@ export default function Home() {
       component: (
         <UTMLink className="text-center block" href="https://vinkas.com" source="vinkas" medium="utm-link" campaign="ui" target="_blank" rel="noopener">Click Me</UTMLink>
       )
-    }],
-    [{
+    }, {
       id: "copyright-text",
       title: "Copyright Text",
       description: "Text component that displays the copyright information",
       url: "/docs/components/copyright-text",
       component: (
         <CopyrightText companyName="Acme Inc." />
+      )
+    }],
+    [{
+      id: "markdown-text",
+      title: "Markdown Text",
+      description: "Text component that displays the copyright information",
+      url: "/docs/components/markdown-text",
+      component: (
+        <MarkdownText text="A **bold text** and *italic text*" />
       )
     }]
   ]
@@ -137,7 +146,7 @@ export default function Home() {
           <section className="theme-container">
             <div className="mb-4">
               {fillRowExamples.map((component, index) => (
-                <div key={index} className="flex flex-col gap-6 *:[div]:w-full *:[div]:max-w-full py-4">
+                <div key={index} className="flex flex-col gap-6 *:[div]:w-full *:[div]:max-w-full py-2">
                   <Card key={index}>
                     <CardHeader>
                       <CardTitle>
