@@ -1,0 +1,38 @@
+---
+title: Markdown Text
+description: A text view that renders beautiful Typeset styled HTML from Markdown
+---
+
+## Demo
+<Card>
+  <CardContent className="flex items-center justify-center py-8">
+    <MarkdownText text="A **bold text** and _italic text_" />
+  </CardContent>
+  <CardFooter className="flex items-center justify-center py-8">
+    ```ts
+      import { MarkdownText } from "@/components/ui/markdown-text"
+
+      export function MarkdownTextDemo() {
+        return <MarkdownText text="A **bold text** and _italic text_" />
+      }
+    ```
+  </CardFooter>
+</Card>
+
+## Installation
+
+```bash
+npx shadcn@latest add @vinkas-ui/markdown-text
+```
+<small>
+Make sure you already have the @vinkas-ui registry added to your components.json file. Read the <a href="/docs/installation">installation guide</a> for more information.
+Also, you should have installed the [Typeset](https://ui.shadcn.com/docs/typeset) from shadcn/ui.
+</small>
+
+### Properties
+
+| Property | Type | Required | Description | Default |
+|----------|------|----------|-------------|---------|
+| text | string | Yes | The markdown text. | - |
+| className | string | No | The className to be applied to the component. | - |
+

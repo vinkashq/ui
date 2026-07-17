@@ -13,6 +13,7 @@ import UTMLink from '@/registry/components/ui/utm-link';
 import CopyrightText from '@/registry/components/ui/copyright-text';
 import CountdownTimer from '@/registry/components/blocks/countdown-timer';
 import { BlocksList } from '@/components/blocks-list';
+import MarkdownText from '@/registry/components/ui/markdown-text';
 
 function ComponentsListWrapper() {
   const componentsFolder = source.pageTree.children.find(
@@ -67,6 +68,7 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
             CardContent: CardContent,
             CardFooter: CardFooter,
             CopyrightText: CopyrightText,
+            MarkdownText: MarkdownText,
             CountdownTimer: CountdownTimer,
             InputCopyable: InputCopyable,
             RelativeTime: RelativeTime,
