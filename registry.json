@@ -85,6 +85,41 @@
           "target": "components/blocks/countdown-timer.tsx"
         }
       ]
+    },
+    {
+      "name": "markdown-text",
+      "type": "registry:ui",
+      "title": "Markdown Text",
+      "description": "A text view that renders beautiful Typeset styled HTML from Markdown",
+      "dependencies": [
+        "markdown-it"
+      ],
+      "devDependencies": [
+        "@types/markdown-it"
+      ],
+      "files": [
+        {
+          "path": "registry/components/ui/markdown-text.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/markdown-text.tsx"
+        }
+      ]
+    },
+    {
+      "name": "composer",
+      "type": "registry:block",
+      "title": "Composer",
+      "description": "A real-time Markdown editor that renders your content as you type. Perfect for writing documentation, articles, or notes.",
+      "registryDependencies": [
+        "@vinkas-ui/markdown-text"
+      ],
+      "files": [
+        {
+          "path": "registry/components/blocks/composer.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/composer.tsx"
+        }
+      ]
     }
   ]
 }
